@@ -1,15 +1,18 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
-part 'user.freezed.dart';
+
+import 'friend.dart';
+part 'profile.freezed.dart';
+part 'profile.g.dart';
 
 @freezed
-class User with _$User {
-  factory User({
+class Profile with _$Profile {
+  factory Profile({
     required String guid,
     required bool isOwner,
     required String balance,
-    required String picture,
-    required double age,
+    required String? picture,
+    required int age,
     required String eyeColor,
     required String name,
     required String gender,
@@ -21,9 +24,12 @@ class User with _$User {
     required String registered,
     required double latitude,
     required double longitude,
-    required List tags,
-    required List friends,
+    required List<String> tags,
+    required List<Friend> friends,
     required String greeting,
     required String favoriteFruit,
-  }) = _User;
+  }) = _Profile;
+
+  factory Profile.fromJson(Map<String, dynamic> json) =>
+      _$ProfileFromJson(json);
 }

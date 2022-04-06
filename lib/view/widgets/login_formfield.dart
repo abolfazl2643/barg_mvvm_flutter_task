@@ -23,6 +23,7 @@ class _LoginTextFormFieldState extends State<LoginTextFormField> {
       controller: widget.controller,
       validator: widget.validator,
       decoration: textfieldDecoration,
+      onTap: () => widget.controller.text = '',
     );
   }
 }

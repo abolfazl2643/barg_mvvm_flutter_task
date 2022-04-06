@@ -1,1 +1,4 @@
-abstract class BaseRepository {}
+abstract class BaseRepository {
+  getAll();
+  getCurrentUser();
+}

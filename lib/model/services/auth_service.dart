@@ -1,5 +1,5 @@
-import 'package:barg_mvvm_task/model/data/identity_info.dart';
-import 'package:barg_mvvm_task/model/interfaces/base_auth_service.dart';
+import '../data/identity_info.dart';
+import '../interfaces/base_auth_service.dart';
 
 class AuthService implements BaseAuthService {
   @override

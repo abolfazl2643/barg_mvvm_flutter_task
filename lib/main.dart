@@ -1,8 +1,9 @@
-import 'package:barg_mvvm_task/view/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-void main() {
+import 'view/routes/routes.dart';
+
+Future<void> main() async {
   runApp(const MyApp());
 }
 

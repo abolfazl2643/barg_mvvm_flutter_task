@@ -1,8 +1,8 @@
-import 'package:barg_mvvm_task/view/themes/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../utils/validators/textfield_validator.dart';
 import '../../view_model/auth_controller.dart';
+import '../themes/theme.dart';
 import '../widgets/login_formfield.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -22,7 +22,7 @@ class _LoginScreenState extends State<LoginScreen> with Validator {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(loginLayoutPadding),
         child: Form(
           key: _formKey,
           child: Column(
@@ -31,39 +31,39 @@ class _LoginScreenState extends State<LoginScreen> with Validator {
             children: [
               Column(
                 children: [
-                  const SizedBox(height: 150),
+                  const SizedBox(height: loginFormPaddingFromTop),
                   LoginTextFormField(
                     controller: usernameTxtController,
                     validator: validateUsername,
                   ),
-                  const SizedBox(height: 15),
+                  const SizedBox(height: formFieldPadding),
                   LoginTextFormField(
                     controller: passwordTxtController,
                     validator: validatePassword,
                   ),
                 ],
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TextButton(
-                    onPressed: () {
-                      if (_formKey.currentState!.validate()) {
-                        authController.login(
-                          usernameTxtController.text,
-                          passwordTxtController.text,
-                        );
-                      }
-                    },
-                    style: loginButtonStyle,
-                    child: const Text(
-                      'login',
-                      style: TextStyle(color: Colors.black),
-                    )),
+              TextButton(
+                onPressed: () => submitFrom(),
+                style: loginButtonStyle,
+                child: const Text(
+                  'login',
+                  style: loginButtonTextStyle,
+                ),
               )
             ],
           ),
         ),
       ),
     );
+  }
+
+  void submitFrom() {
+    if (_formKey.currentState!.validate()) {
+      authController.login(
+        usernameTxtController.text,
+        passwordTxtController.text,
+      );
+    }
   }
 }

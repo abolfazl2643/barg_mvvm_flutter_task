@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'user.dart';
+part of 'profile.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,16 +14,20 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-/// @nodoc
-class _$UserTearOff {
-  const _$UserTearOff();
+Profile _$ProfileFromJson(Map<String, dynamic> json) {
+  return _Profile.fromJson(json);
+}
 
-  _User call(
+/// @nodoc
+class _$ProfileTearOff {
+  const _$ProfileTearOff();
+
+  _Profile call(
       {required String guid,
       required bool isOwner,
       required String balance,
-      required String picture,
-      required double age,
+      required String? picture,
+      required int age,
       required String eyeColor,
       required String name,
       required String gender,
@@ -35,11 +39,11 @@ class _$UserTearOff {
       required String registered,
       required double latitude,
       required double longitude,
-      required List<dynamic> tags,
-      required List<dynamic> friends,
+      required List<String> tags,
+      required List<Friend> friends,
       required String greeting,
       required String favoriteFruit}) {
-    return _User(
+    return _Profile(
       guid: guid,
       isOwner: isOwner,
       balance: balance,
@@ -62,18 +66,22 @@ class _$UserTearOff {
       favoriteFruit: favoriteFruit,
     );
   }
+
+  Profile fromJson(Map<String, Object?> json) {
+    return Profile.fromJson(json);
+  }
 }
 
 /// @nodoc
-const $User = _$UserTearOff();
+const $Profile = _$ProfileTearOff();
 
 /// @nodoc
-mixin _$User {
+mixin _$Profile {
   String get guid => throw _privateConstructorUsedError;
   bool get isOwner => throw _privateConstructorUsedError;
   String get balance => throw _privateConstructorUsedError;
-  String get picture => throw _privateConstructorUsedError;
-  double get age => throw _privateConstructorUsedError;
+  String? get picture => throw _privateConstructorUsedError;
+  int get age => throw _privateConstructorUsedError;
   String get eyeColor => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get gender => throw _privateConstructorUsedError;
@@ -85,25 +93,26 @@ mixin _$User {
   String get registered => throw _privateConstructorUsedError;
   double get latitude => throw _privateConstructorUsedError;
   double get longitude => throw _privateConstructorUsedError;
-  List<dynamic> get tags => throw _privateConstructorUsedError;
-  List<dynamic> get friends => throw _privateConstructorUsedError;
+  List<String> get tags => throw _privateConstructorUsedError;
+  List<Friend> get friends => throw _privateConstructorUsedError;
   String get greeting => throw _privateConstructorUsedError;
   String get favoriteFruit => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $UserCopyWith<User> get copyWith => throw _privateConstructorUsedError;
+  $ProfileCopyWith<Profile> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UserCopyWith<$Res> {
-  factory $UserCopyWith(User value, $Res Function(User) then) =
-      _$UserCopyWithImpl<$Res>;
+abstract class $ProfileCopyWith<$Res> {
+  factory $ProfileCopyWith(Profile value, $Res Function(Profile) then) =
+      _$ProfileCopyWithImpl<$Res>;
   $Res call(
       {String guid,
       bool isOwner,
       String balance,
-      String picture,
-      double age,
+      String? picture,
+      int age,
       String eyeColor,
       String name,
       String gender,
@@ -115,19 +124,19 @@ abstract class $UserCopyWith<$Res> {
       String registered,
       double latitude,
       double longitude,
-      List<dynamic> tags,
-      List<dynamic> friends,
+      List<String> tags,
+      List<Friend> friends,
       String greeting,
       String favoriteFruit});
 }
 
 /// @nodoc
-class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
-  _$UserCopyWithImpl(this._value, this._then);
+class _$ProfileCopyWithImpl<$Res> implements $ProfileCopyWith<$Res> {
+  _$ProfileCopyWithImpl(this._value, this._then);
 
-  final User _value;
+  final Profile _value;
   // ignore: unused_field
-  final $Res Function(User) _then;
+  final $Res Function(Profile) _then;
 
   @override
   $Res call({
@@ -168,11 +177,11 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
       picture: picture == freezed
           ? _value.picture
           : picture // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       age: age == freezed
           ? _value.age
           : age // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       eyeColor: eyeColor == freezed
           ? _value.eyeColor
           : eyeColor // ignore: cast_nullable_to_non_nullable
@@ -220,11 +229,11 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
       tags: tags == freezed
           ? _value.tags
           : tags // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
+              as List<String>,
       friends: friends == freezed
           ? _value.friends
           : friends // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
+              as List<Friend>,
       greeting: greeting == freezed
           ? _value.greeting
           : greeting // ignore: cast_nullable_to_non_nullable
@@ -238,16 +247,16 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$UserCopyWith<$Res> implements $UserCopyWith<$Res> {
-  factory _$UserCopyWith(_User value, $Res Function(_User) then) =
-      __$UserCopyWithImpl<$Res>;
+abstract class _$ProfileCopyWith<$Res> implements $ProfileCopyWith<$Res> {
+  factory _$ProfileCopyWith(_Profile value, $Res Function(_Profile) then) =
+      __$ProfileCopyWithImpl<$Res>;
   @override
   $Res call(
       {String guid,
       bool isOwner,
       String balance,
-      String picture,
-      double age,
+      String? picture,
+      int age,
       String eyeColor,
       String name,
       String gender,
@@ -259,20 +268,20 @@ abstract class _$UserCopyWith<$Res> implements $UserCopyWith<$Res> {
       String registered,
       double latitude,
       double longitude,
-      List<dynamic> tags,
-      List<dynamic> friends,
+      List<String> tags,
+      List<Friend> friends,
       String greeting,
       String favoriteFruit});
 }
 
 /// @nodoc
-class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
-    implements _$UserCopyWith<$Res> {
-  __$UserCopyWithImpl(_User _value, $Res Function(_User) _then)
-      : super(_value, (v) => _then(v as _User));
+class __$ProfileCopyWithImpl<$Res> extends _$ProfileCopyWithImpl<$Res>
+    implements _$ProfileCopyWith<$Res> {
+  __$ProfileCopyWithImpl(_Profile _value, $Res Function(_Profile) _then)
+      : super(_value, (v) => _then(v as _Profile));
 
   @override
-  _User get _value => super._value as _User;
+  _Profile get _value => super._value as _Profile;
 
   @override
   $Res call({
@@ -297,7 +306,7 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
     Object? greeting = freezed,
     Object? favoriteFruit = freezed,
   }) {
-    return _then(_User(
+    return _then(_Profile(
       guid: guid == freezed
           ? _value.guid
           : guid // ignore: cast_nullable_to_non_nullable
@@ -313,11 +322,11 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
       picture: picture == freezed
           ? _value.picture
           : picture // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       age: age == freezed
           ? _value.age
           : age // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       eyeColor: eyeColor == freezed
           ? _value.eyeColor
           : eyeColor // ignore: cast_nullable_to_non_nullable
@@ -365,11 +374,11 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
       tags: tags == freezed
           ? _value.tags
           : tags // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
+              as List<String>,
       friends: friends == freezed
           ? _value.friends
           : friends // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
+              as List<Friend>,
       greeting: greeting == freezed
           ? _value.greeting
           : greeting // ignore: cast_nullable_to_non_nullable
@@ -383,9 +392,9 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
-class _$_User with DiagnosticableTreeMixin implements _User {
-  _$_User(
+@JsonSerializable()
+class _$_Profile with DiagnosticableTreeMixin implements _Profile {
+  _$_Profile(
       {required this.guid,
       required this.isOwner,
       required this.balance,
@@ -407,6 +416,9 @@ class _$_User with DiagnosticableTreeMixin implements _User {
       required this.greeting,
       required this.favoriteFruit});
 
+  factory _$_Profile.fromJson(Map<String, dynamic> json) =>
+      _$$_ProfileFromJson(json);
+
   @override
   final String guid;
   @override
@@ -414,9 +426,9 @@ class _$_User with DiagnosticableTreeMixin implements _User {
   @override
   final String balance;
   @override
-  final String picture;
+  final String? picture;
   @override
-  final double age;
+  final int age;
   @override
   final String eyeColor;
   @override
@@ -440,9 +452,9 @@ class _$_User with DiagnosticableTreeMixin implements _User {
   @override
   final double longitude;
   @override
-  final List<dynamic> tags;
+  final List<String> tags;
   @override
-  final List<dynamic> friends;
+  final List<Friend> friends;
   @override
   final String greeting;
   @override
@@ -450,14 +462,14 @@ class _$_User with DiagnosticableTreeMixin implements _User {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'User(guid: $guid, isOwner: $isOwner, balance: $balance, picture: $picture, age: $age, eyeColor: $eyeColor, name: $name, gender: $gender, company: $company, email: $email, phone: $phone, address: $address, about: $about, registered: $registered, latitude: $latitude, longitude: $longitude, tags: $tags, friends: $friends, greeting: $greeting, favoriteFruit: $favoriteFruit)';
+    return 'Profile(guid: $guid, isOwner: $isOwner, balance: $balance, picture: $picture, age: $age, eyeColor: $eyeColor, name: $name, gender: $gender, company: $company, email: $email, phone: $phone, address: $address, about: $about, registered: $registered, latitude: $latitude, longitude: $longitude, tags: $tags, friends: $friends, greeting: $greeting, favoriteFruit: $favoriteFruit)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'User'))
+      ..add(DiagnosticsProperty('type', 'Profile'))
       ..add(DiagnosticsProperty('guid', guid))
       ..add(DiagnosticsProperty('isOwner', isOwner))
       ..add(DiagnosticsProperty('balance', balance))
@@ -484,7 +496,7 @@ class _$_User with DiagnosticableTreeMixin implements _User {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _User &&
+            other is _Profile &&
             const DeepCollectionEquality().equals(other.guid, guid) &&
             const DeepCollectionEquality().equals(other.isOwner, isOwner) &&
             const DeepCollectionEquality().equals(other.balance, balance) &&
@@ -536,17 +548,22 @@ class _$_User with DiagnosticableTreeMixin implements _User {
 
   @JsonKey(ignore: true)
   @override
-  _$UserCopyWith<_User> get copyWith =>
-      __$UserCopyWithImpl<_User>(this, _$identity);
+  _$ProfileCopyWith<_Profile> get copyWith =>
+      __$ProfileCopyWithImpl<_Profile>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_ProfileToJson(this);
+  }
 }
 
-abstract class _User implements User {
-  factory _User(
+abstract class _Profile implements Profile {
+  factory _Profile(
       {required String guid,
       required bool isOwner,
       required String balance,
-      required String picture,
-      required double age,
+      required String? picture,
+      required int age,
       required String eyeColor,
       required String name,
       required String gender,
@@ -558,10 +575,12 @@ abstract class _User implements User {
       required String registered,
       required double latitude,
       required double longitude,
-      required List<dynamic> tags,
-      required List<dynamic> friends,
+      required List<String> tags,
+      required List<Friend> friends,
       required String greeting,
-      required String favoriteFruit}) = _$_User;
+      required String favoriteFruit}) = _$_Profile;
+
+  factory _Profile.fromJson(Map<String, dynamic> json) = _$_Profile.fromJson;
 
   @override
   String get guid;
@@ -570,9 +589,9 @@ abstract class _User implements User {
   @override
   String get balance;
   @override
-  String get picture;
+  String? get picture;
   @override
-  double get age;
+  int get age;
   @override
   String get eyeColor;
   @override
@@ -596,14 +615,15 @@ abstract class _User implements User {
   @override
   double get longitude;
   @override
-  List<dynamic> get tags;
+  List<String> get tags;
   @override
-  List<dynamic> get friends;
+  List<Friend> get friends;
   @override
   String get greeting;
   @override
   String get favoriteFruit;
   @override
   @JsonKey(ignore: true)
-  _$UserCopyWith<_User> get copyWith => throw _privateConstructorUsedError;
+  _$ProfileCopyWith<_Profile> get copyWith =>
+      throw _privateConstructorUsedError;
 }

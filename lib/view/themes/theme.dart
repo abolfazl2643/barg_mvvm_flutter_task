@@ -6,6 +6,17 @@ var loginButtonStyle = TextButton.styleFrom(
   minimumSize: Size(Get.width, 50),
 );
 
+const appbarHeight = 60.0;
+
+//paddings
+const cardInnerPadding = 10.0;
+const loginFormPaddingFromTop = 150.0;
+const loginLayoutPadding = 8.0;
+const formFieldPadding = 15.0;
+const appbarCircleAvatarPadding = 8.0;
+
+const loginButtonTextStyle = TextStyle(color: Colors.black);
+
 var textfieldDecoration = InputDecoration(
   fillColor: const Color.fromARGB(255, 176, 228, 241),
   filled: true,

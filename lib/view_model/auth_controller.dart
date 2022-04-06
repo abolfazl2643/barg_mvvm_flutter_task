@@ -1,5 +1,7 @@
-import 'package:barg_mvvm_task/model/services/auth_service.dart';
+import 'package:barg_mvvm_task/model/entities/responses/login_failed_response.dart';
 import 'package:get/get.dart';
+
+import '../model/services/auth_service.dart';
 
 class AuthController extends GetxController {
   var isLoggedIn = false.obs;
@@ -11,8 +13,12 @@ class AuthController extends GetxController {
     if (loginResult == true) {
       isLoggedIn.value = loginResult;
       Get.toNamed('/');
-    } else {
-      Get.snackbar('', 'Please enter the correct username and password!');
+      return;
     }
+    const response = LoginFailedResponse(
+      message: 'Please enter the correct username and password!',
+      title: 'Login failed',
+    );
+    Get.snackbar(response.title, response.message);
   }
 }
