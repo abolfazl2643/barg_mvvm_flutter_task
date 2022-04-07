@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../utils/ui_utils/constants.dart';
 import '../../view_model/user_profile_controller.dart';
 import '../themes/theme.dart';
-import '../widgets/main_appbar.dart';
-import '../widgets/skeleton_loading.dart';
+import '../widgets/main_screen_widgets/main_appbar.dart';
+import '../widgets/main_screen_widgets/skeleton_loading.dart';
+import '../widgets/main_screen_widgets/user_card.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -28,7 +28,7 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size(Get.width, appbarHeight),
-        child: MainAppBar(profileController: profileController),
+        child: ProfileAppBar(profileController: profileController),
       ),
       body: FutureBuilder(
         future: profileController.setUserProfiles(),
@@ -37,42 +37,14 @@ class _MainScreenState extends State<MainScreen> {
             return ListView.builder(
               itemCount: profileController.profiles.length,
               itemBuilder: (context, index) {
-                return Card(
-                  child: Padding(
-                    padding: const EdgeInsets.all(cardInnerPadding),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          children: [
-                            CircleAvatar(
-                              backgroundImage: NetworkImage(
-                                profileController.profiles[index].picture ??
-                                    defaultProfilePhotoURL,
-                              ),
-                            ),
-                            const SizedBox(width: cardInnerPadding),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(profileController.profiles[index].name),
-                                const SizedBox(height: cardInnerPadding),
-                                Text(profileController.profiles[index].email),
-                              ],
-                            )
-                          ],
-                        ),
-                        const SizedBox(height: cardInnerPadding),
-                        Text(profileController.profiles[index].address),
-                      ],
-                    ),
-                  ),
+                return UserCard(
+                  profileController: profileController,
+                  index: index,
                 );
               },
             );
-          } else {
-            return const SkeletonLoading();
           }
+          return const SkeletonLoading();
         },
       ),
     );

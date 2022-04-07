@@ -3,9 +3,9 @@ import '../interfaces/base_auth_service.dart';
 
 class AuthService implements BaseAuthService {
   @override
-  bool login({required String username, required String password}) {
-    if (username == identityInfo.username &&
-        password == identityInfo.password) {
+  bool signIn({required String username, required String password}) {
+    if (username == storedIdentityInfo.username &&
+        password == storedIdentityInfo.password) {
       return true;
     }
     return false;

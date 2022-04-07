@@ -20,9 +20,12 @@ class ProfileController extends GetxController {
   }
 
   setSelectedProfile(String guid) async {
-    selectedProfile.value = await userRepository.getProfileByGuid(guid, () {
+    var selected = await userRepository.getProfileByGuid(guid);
+    if (selected == null) {
       Get.defaultDialog(content: const Text('Profile is unavailable'));
-      return currentUser.value!;
-    });
+      selectedProfile.value = currentUser.value;
+      return;
+    }
+    selectedProfile.value = selected;
   }
 }

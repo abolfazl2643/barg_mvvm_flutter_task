@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shimmer_animation/shimmer_animation.dart';
 
-import '../themes/theme.dart';
+import '../../themes/theme.dart';
 
 class SkeletonLoading extends StatelessWidget {
   const SkeletonLoading({

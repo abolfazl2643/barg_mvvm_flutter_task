@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../utils/ui_utils/alert_dialogs.dart';
 import '../../utils/validators/textfield_validator.dart';
 import '../../view_model/auth_controller.dart';
 import '../themes/theme.dart';
-import '../widgets/login_formfield.dart';
+import '../widgets/login_screen_widgets/login_formfield.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -64,6 +65,10 @@ class _LoginScreenState extends State<LoginScreen> with Validator {
         usernameTxtController.text,
         passwordTxtController.text,
       );
+
+      authController.isLoggedIn.value == true
+          ? Get.toNamed('/main-screen')
+          : showLoginFailedDialog();
     }
   }
 }

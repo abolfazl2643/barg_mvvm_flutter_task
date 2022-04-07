@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../utils/ui_utils/constants.dart';
-import '../../view_model/user_profile_controller.dart';
-import '../themes/theme.dart';
+import '../../../utils/ui_utils/constants.dart';
+import '../../../view_model/user_profile_controller.dart';
+import '../../themes/theme.dart';
 
-class MainAppBar extends StatelessWidget {
-  const MainAppBar({
+class ProfileAppBar extends StatelessWidget {
+  const ProfileAppBar({
     Key? key,
     required this.profileController,
   }) : super(key: key);

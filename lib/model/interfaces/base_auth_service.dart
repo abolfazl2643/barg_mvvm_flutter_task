@@ -1,5 +1,5 @@
 abstract class BaseAuthService {
-  bool login({
+  bool signIn({
     required String username,
     required String password,
   });
