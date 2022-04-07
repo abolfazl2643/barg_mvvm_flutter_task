@@ -1,3 +1,4 @@
+import 'package:barg_mvvm_task/view/bindings/profile_screen_bindings.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 
 import '../bindings/login_screen_bindings.dart';
@@ -8,17 +9,19 @@ import '../screens/profile_screen.dart';
 
 var routes = [
   GetPage(
-    name: '/',
+    name: '/main-screen',
     page: () => const MainScreen(),
     binding: MainScreenBinding(),
   ),
   GetPage(
-    name: '/login',
+    name: '/login-screen',
     page: () => const LoginScreen(),
     binding: LoginScreenBinding(),
   ),
   GetPage(
-      name: '/profile',
-      page: () => const ProfileScreen(),
-      transition: Transition.zoom),
+    name: '/profile-screen',
+    page: () => const ProfileScreen(),
+    transition: Transition.zoom,
+    binding: ProfileScreenBinding(),
+  ),
 ];

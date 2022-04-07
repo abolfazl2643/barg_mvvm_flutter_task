@@ -24,14 +24,14 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    profileController.getCurrentUserProfile();
+    profileController.setCurrentUserProfile();
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size(Get.width, appbarHeight),
         child: MainAppBar(profileController: profileController),
       ),
       body: FutureBuilder(
-        future: profileController.getUserProfiles(),
+        future: profileController.setUserProfiles(),
         builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
           if (snapshot.hasData) {
             return ListView.builder(

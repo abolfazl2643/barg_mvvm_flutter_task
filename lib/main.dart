@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/login',
+      initialRoute: '/login-screen',
       theme: ThemeData(),
       getPages: routes,
     );

@@ -9,10 +9,10 @@ class UserRepository implements BaseRepository {
 
   @override
   Future<List<Profile>> getAll() async {
-    await Future.delayed(const Duration(seconds: 1));
+    await Future.delayed(const Duration(seconds: 2));
     var decodedData = await getDecodedData();
     var usersList = List.from(decodedData);
-    return usersList.map((usr) => Profile.fromJson(usr)).toList();
+    return usersList.map((profile) => Profile.fromJson(profile)).toList();
   }
 
   @override
@@ -26,5 +26,14 @@ class UserRepository implements BaseRepository {
     var fileLocation = 'lib/model/data/user_profile.json';
     final response = await rootBundle.loadString(fileLocation);
     return jsonDecode(response);
+  }
+
+  getProfileByGuid(String guid, Profile Function() orElse) async {
+    var decodedData = await getDecodedData();
+    var usersList = List.from(decodedData)
+        .map((profile) => Profile.fromJson(profile))
+        .toList();
+    return usersList.singleWhere((element) => element.guid == guid,
+        orElse: orElse);
   }
 }

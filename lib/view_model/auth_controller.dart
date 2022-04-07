@@ -1,6 +1,6 @@
-import 'package:barg_mvvm_task/model/entities/responses/login_failed_response.dart';
 import 'package:get/get.dart';
 
+import '../model/entities/responses/login_failed_response.dart';
 import '../model/services/auth_service.dart';
 
 class AuthController extends GetxController {
@@ -12,10 +12,10 @@ class AuthController extends GetxController {
 
     if (loginResult == true) {
       isLoggedIn.value = loginResult;
-      Get.toNamed('/');
+      Get.toNamed('/main-screen');
       return;
     }
-    const response = LoginFailedResponse(
+    var response = const LoginFailedResponse(
       message: 'Please enter the correct username and password!',
       title: 'Login failed',
     );

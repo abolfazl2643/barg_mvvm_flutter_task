@@ -22,10 +22,17 @@ class MainAppBar extends StatelessWidget {
           title: Text(profileController.currentUser.value?.name ?? 'Guest'),
           leading: Padding(
             padding: const EdgeInsets.all(appbarCircleAvatarPadding),
-            child: CircleAvatar(
-              backgroundImage: NetworkImage(
-                profileController.currentUser.value?.picture ??
-                    defaultProfilePhotoURL,
+            child: GestureDetector(
+              onTap: () {
+                var currentUserGuid = profileController.currentUser.value!.guid;
+                profileController.setSelectedProfile(currentUserGuid);
+                Get.toNamed('/profile-screen');
+              },
+              child: CircleAvatar(
+                backgroundImage: NetworkImage(
+                  profileController.currentUser.value?.picture ??
+                      defaultProfilePhotoURL,
+                ),
               ),
             ),
           ),
