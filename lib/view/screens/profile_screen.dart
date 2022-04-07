@@ -1,9 +1,9 @@
-import 'package:barg_mvvm_task/view/widgets/main_screen_widgets/main_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../view_model/user_profile_controller.dart';
 import '../themes/theme.dart';
+import '../widgets/main_screen_widgets/main_appbar.dart';
 import '../widgets/profile_screen_widgets/freinds_list_section.dart';
 import '../widgets/profile_screen_widgets/greeting_card.dart';
 import '../widgets/profile_screen_widgets/user_info_card.dart';

@@ -1,4 +1,4 @@
-import '../data/identity_info.dart';
+import '../../utils/identity/identity_info.dart';
 import '../interfaces/base_auth_service.dart';
 
 class AuthService implements BaseAuthService {

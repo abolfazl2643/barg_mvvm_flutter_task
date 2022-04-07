@@ -3,9 +3,12 @@ import 'package:get/get.dart';
 import '../../utils/ui_utils/alert_dialogs.dart';
 import '../../utils/validators/textfield_validator.dart';
 import '../../view_model/auth_controller.dart';
+import '../routes/route_enum.dart';
 import '../themes/theme.dart';
 import '../widgets/login_screen_widgets/login_formfield.dart';
 
+///password => 1111
+///username => 1111
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
@@ -60,6 +63,8 @@ class _LoginScreenState extends State<LoginScreen> with Validator {
   }
 
   void submitFrom() {
+    ///password => 1111
+    ///username => 1111
     if (_formKey.currentState!.validate()) {
       authController.login(
         usernameTxtController.text,
@@ -67,7 +72,7 @@ class _LoginScreenState extends State<LoginScreen> with Validator {
       );
 
       authController.isLoggedIn.value == true
-          ? Get.toNamed('/main-screen')
+          ? Get.toNamed(getRouteName(Screen.main))
           : showLoginFailedDialog();
     }
   }

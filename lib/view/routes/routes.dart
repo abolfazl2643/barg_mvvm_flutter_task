@@ -1,8 +1,8 @@
-import 'package:barg_mvvm_task/view/bindings/profile_screen_bindings.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 
 import '../bindings/login_screen_bindings.dart';
 import '../bindings/main_screen_bindings.dart';
+import '../bindings/profile_screen_bindings.dart';
 import '../screens/login_screen.dart';
 import '../screens/main_screen.dart';
 import '../screens/profile_screen.dart';
