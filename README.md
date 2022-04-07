@@ -1,4 +1,4 @@
-# barg_mvvm_task
+ Summary
 
 - A simple implementation of mvvm Architecture in Flutter
 - Includes unit test
